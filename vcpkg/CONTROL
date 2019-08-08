@@ -1,4 +1,0 @@
-Source: ros-dashing-ros2pkg
-Version: 0.7.4
-Description: The pkg command for ROS 2 command line tools.
-Build-Depends:
