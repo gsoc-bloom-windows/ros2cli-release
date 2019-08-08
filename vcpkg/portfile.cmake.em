@@ -2,16 +2,22 @@ include(vcpkg_common_functions)
 
 set(VCPKG_BUILD_TYPE release)
 
+@[if git_source == 'gitlab']@
+vcpkg_from_gitlab(
+@[elif git_source == 'github']@
 vcpkg_from_github(
+@[elif git_source == 'bitbucket']@
+vcpkg_from_bitbucket(
+@[end if]@
     OUT_SOURCE_PATH SOURCE_PATH
-    REPO gsoc-bloom-windows/ros2cli-release
-    REF vcpkg/ros-dashing-ros2run_0.7.4-6_10
+    REPO @(user_name)/@(repo_name)
+    REF @(tag_name)
 )
 
 find_package(PythonInterp 3)
 
 if (${PYTHONINTERP_FOUND})
-    set(SETUP_INSTALL_PREFIX "${CURRENT_PACKAGES_DIR}/opt/ros/dashing")
+    set(SETUP_INSTALL_PREFIX "${CURRENT_PACKAGES_DIR}")
     set(SETUP_INSTALL_PYTHONPATH "${SETUP_INSTALL_PREFIX}/Lib/site-packages")
     file(TO_NATIVE_PATH "${SETUP_INSTALL_PREFIX}" SETUP_INSTALL_PREFIX)
     file(TO_NATIVE_PATH "${SETUP_INSTALL_PYTHONPATH}" SETUP_INSTALL_PYTHONPATH)
