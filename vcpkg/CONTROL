@@ -1,4 +1,0 @@
-Source: ros-dashing-ros2component
-Version: 0.7.4
-Description: The component command for ROS 2 command line tools.
-Build-Depends:

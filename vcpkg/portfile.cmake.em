@@ -2,10 +2,16 @@ include(vcpkg_common_functions)
 
 set(VCPKG_BUILD_TYPE release)
 
+@[if git_source == 'gitlab']@
+vcpkg_from_gitlab(
+@[elif git_source == 'github']@
 vcpkg_from_github(
+@[elif git_source == 'bitbucket']@
+vcpkg_from_bitbucket(
+@[end if]@
     OUT_SOURCE_PATH SOURCE_PATH
-    REPO gsoc-bloom-windows/ros2cli-release
-    REF vcpkg/ros-dashing-ros2component_0.7.4-8_10
+    REPO @(user_name)/@(repo_name)
+    REF @(tag_name)
 )
 
 find_package(PythonInterp 3)
