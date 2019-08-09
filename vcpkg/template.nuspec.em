@@ -1,18 +1,15 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
-    <id>ros-dashing-ros2srv</id>
-    <version>0.7.4</version>
-    <title>ros-dashing-ros2srv</title>
-    <authors></authors>
+    <id>@(Package)</id>
+    <version>@(Version)</version>
+    <title>@(Package)</title>
+    <authors>@(Authors)</authors>
     <owners>OSRF</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>The srv command for ROS 2 command line tools.</description>
+    <description>@(Description)</description>
     <dependencies>
-			<dependency id="ros-dashing-ament-index-python"/>
-			<dependency id="ros-dashing-ros2cli"/>
-			<dependency id="ros-dashing-ros-workspace"/>
-
+@[for d in Depends]@(d)@[end for]
     </dependencies>
   </metadata>
   <files>
