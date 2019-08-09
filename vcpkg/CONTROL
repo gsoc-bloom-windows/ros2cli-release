@@ -1,4 +1,0 @@
-Source: ros-dashing-ros2msg
-Version: 0.7.4
-Description: The msg command for ROS 2 command line tools.
-Build-Depends:
